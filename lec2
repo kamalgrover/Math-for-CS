@@ -1,0 +1,122 @@
+Proof by contradiction : 
+	To prove P is true, we assume P is False ( i.e not P is True)
+	Then use that hypothesis to derive a falsehood or contradiction.
+
+IF !P => False is true
+=> !P is False 
+=> P is true
+
+Proof of sqaure root of 2 is irrational.
+
+Pf ( by cont.)
+Assume for the purpose of contradiction that SQRT(2) is rational.
+=> SQRT(2) = a/b ( fraction in lowest terms)
+=> 2 = a^2 / b^2
+=> 2(b^2) = a^2
+
+=> a is even i.e ( 2 | a)
+=> 4 | a^2
+=> 4 | 2 * b^2
+=> 2 | b^2
+=> b is even
+=> a/b is not is lowest terms.
+hence by contradiction SQRT(2) is irrational.
+
+
+Proof by Induction : 
+
+Induction axiom : 
+	Let P(n) be a predicate . If P(0) is true. and forall natural numbers, n ( P(n) => P(n+1)) is true
+	then forall natural numbers P(n) is true.
+
+	or in other words, 
+	If P(0), P(0)=>P(1), P(1)=>P(2) ... are true.
+	then P(0),P(1),P(2) ... are true.
+
+Ex : 
+Theorem : for n>=0 sigma(i) : 1<=i<=n = n( n+1) /2
+
+Proof : by induction 
+	Write Inductive Hypothesis : Let p(n) be proposition that sigma(i) : 1<=i<=n = n(n+1) / 2  // Ususlly the thing that you are trying to prove.
+	Check Base Case: P(0) is true. sigma(i) : 1<=i<=0 = 0( 0+1) /2 = 0 : checked.
+	Inductive Step : For n>=0, show P(n)=>P(n+1) is true : ( refer imples truth table. only case a=>b is false is when true implies false. )
+		Assume P(n) is true for purposes of induction.
+		(i.e, assume 1 + 2 + ... n = n ( n + 1) / 2)
+		need to show 1 + 2 + ... + ( n + 1 ) = ( n + 1 ) ( n + 2 ) / 2
+		=> LHS =  1 + 2 + ... + n +  ( n + 1 )
+		=> LHS = n (n+1) / 2 + n+1 = (n^2 + n + 2*n + 2) / 2 = (n+1)(n+2)/2
+		i.e P(n) => P(n+1 ) is true . which means forall natual numbers P(n) is true. #hence Proved.
+
+
+Theorem : forall natural numbers, n : 3 | ( n^3 - n)
+Pf : by induction.
+	Hypothesis : Let P(n) : propositon that forall natural numbers, n : 3 | ( n^3 - n)
+	Base Case : n = 0 . 3 | ( 0 - 0) is true.
+	Inductive step : For n >= 0, Show P(n) = P (n +1) is True.
+		Assume P(n) is true. ie. 3 | ( n^3-n)
+		Examine : (n+1)^3 - n+1 = n^3 + 3n^2 + 3n + 1 - (n+1) 
+								= n^3 + 3n^2 + 2n 
+								= n^3 -n + 3n^2 + 3n 
+								= n^3 -n + 3(n^2 + n) 
+								= (n^3 -n) + 3(n^2 + n) 
+								= P(n) + 3(n^2+n) : Hence Proved.
+
+
+
+Base Case : P(b) is true.
+Inductive Step : forall n>=b , P(n)=>P(n+1)
+conclude : forall n>=b P(n) is true.
+
+False proof by induction : 
+Theorem (not!) : All horses are the same color.
+Pf: by induction 
+Hypthesis : P(n) In any set of n horses where n>=1, the horses in the set are all the same color.
+Base Case : n = 1 , 1 horse : has 1 color. hence true.
+Inductive Step : Assume P(n) is true and show P(n+1) is true.
+	Consider : Any set of n+1 horses, h1, h2, ... hn+1
+				then H1, H2, ... Hn are the same color : because (P(n))
+				also H2, H3, ... Hn+1 are the same color : becuase ( they are a set of n horses. i.e P(n))
+				Since Color (H1) = color (H2, H3...Hn) = color (Hn+1)
+				=> all n+1 are the same color => P(n+1) : hence Proved.
+
+What is wrong ? What is the flaw ? Does proof by induction does not always work??
+The bug is in the ...
+so if we go back to the definition of induction 
+If P(0), P(0)=>P(1), P(1)=>P(2) ... are true.
+	then P(0),P(1),P(2) ... are true.
+
+Does P(1)=>P(2)
+Inductive Step : Assume P(1) is true and show P(1+1) is true.
+	Consider : Any set of 1+1 horses, h1, h2
+				then H1  are the same color : because (P(1))
+				also H2 are the same color : becuase ( they are a set of n horses. i.e P(1))
+				Since Color (H1) = color (H2, H3...Hn) = color (H2) ////////    This  argument is incorrect
+				hence not correct.
+
+So missing link in the chain is P(1)=>P(2). 
+P(0) is true
+P(2) => P(3) is true. and so on// but these doesnt matter becuase 1 missing link 
+
+Tiling Problem : 
+
+Theorem : forall n, there exists a way to tile 2^n X 2^n  region with a center sqaure missing  (For Statue) with L shaped Tiles of 2x2
+Pf: by induction : 
+P(n) : there exists a way to tile 2^n X 2^n  region with a center sqaure missing  with L shaped Tiles of 2x2
+Base Case : P(0) : just 1 sqaure . That is for a statue.
+Inductive step : For n>=0 , Assume P(n) to verify Inductive Hypothesis.
+ 	So we need to show P(n+1) is true.
+ 	Consider a 2^(n+1) X 2^(n+1) Courtyard.
+
+ 	We can divide a 2^(n+1) X 2^(n+1) into 4 regions of 2^n X 2^n . Place bill(statue) at the internal corener of 1 of the tile and then tile the rest 2 with an L shaped tile.
+ 	now we have to tile the other 4 blocks of 2^n X 2^n with 1 internal corener missing from all of them. We can use the inductive hypothesis to tile them .
+
+ 	Except for the fact that out inductive hypothesis stats that bill(statue) has to be in the center.
+
+ 	So This gives us the motivation to change to indictive hypothesis to a more general ( more powerfull one) where statue is at the corner.
+
+New Hypothesis : there exists a way to tile 2^n X 2^n  region with a corner sqaure missing  with L shaped Tiles of 2x2 ( Do-able but dificult)
+New New Hypothesis : there exists a way to tile 2^n X 2^n  region with any sqaure missing  with L shaped Tiles of 2x2
+
+
+In inductive proof if P(n) is more powerfull. hence my toolset has become stronger. becuase we are using P(n) to Prove P(n+1).
+It's all art of picking the right induction hypothesis. Pick the right one your life will be easy.
