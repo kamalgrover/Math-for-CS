@@ -1,0 +1,95 @@
+Proof: A method to ascertain the truth.
+
+Ways to do : 
+	experimentation and observation.
+	sampling and counter example
+	judge and jurry
+	word of god
+	boss ( higher authority )
+	conviction
+
+Mathematical proof : is a verification of a proposition by a chain of of logical deductions from a set of axioms.
+proposition : A proposition is a statement that is either true or false. ex : 2+3=5
+Ex : for all n belongs to natural numbers, (n^2 + n + 41 is a prime) ==> this is a predicate.
+predicate : is a proposition whose truth depends on the value of variable(s).
+n 	n^2 + n + 41  prime
+0	41				true
+1	43				true
+2	47				true
+3	53				true	
+.
+.
+.
+20	461				true
+.
+.
+.
+39	1601			true
+40 					false
+41					false
+
+
+Ex : a^4 + b^4 + c^4 = d^4 has no positive integer solution . ( conjecture by euler )
+	a = 958000
+	b = 217519
+	c = 422481
+
+so the correct porposition is 
+	There exists a,b,c,d bellons to positive natural numbers such that a^4 + b^4 + c^4 = d^4
+
+Ex : 313 ( x^3 + y^3) = z^3 : it turns out to be false and smallest number has over thousands of digits. so there is no way you could use a computer to exhaustively search a thousand digit number to disprove it.
+
+Why do I care : weather 313 ( x^3 + y^3) = z^3 has a solution. It's a equation for an eliptic curve. which is used to factoring. which is used to break crypto systems. It is now because of this that RSA uses thousand digit moduluses and hundred digit moduluses.
+
+The bigger message is you don't just try a few cases and conclude that it is done.
+
+
+Ex. The regions in any map can be coloured in 4 colours so that adjacent regions have different colors. ( 4 color theorem 1863 )
+
+Ex. Every positon integer but 2 is a sum of 2 primes. ( goldbach's conjecture, 1743 ) unproven yet.
+	ex. 24 = 11 + 13
+
+conjecture : REimen's hypothesis 
+
+
+for all n in integers , n > 2 implies n^2 > 4
+Def: an implication p implies q is true if p is False or q is True
+p 	q 	p => q 
+T 	T 	T
+T 	F 	F
+F 	T 	T
+F 	F 	T
+
+if pigs fly => i'm king : True
+
+Ex : for all n in integers , n > 2 if and only if n^2 > 4  """" False for negatives. 
+
+if and only if 
+p 	q 	p => q  q=>p 	p <=> q
+T 	T 	T 		T 		T
+T 	F 	F   	T 		F
+F 	T 	T 		F 		F 
+F 	F 	T 		T 		T
+
+
+Axioms : is a proposition that is assumed to be true.
+Ex : If a = b and b = c , hence a = c.
+
+Axioms can be contradictory in different contexts. 
+Euclidian  Geometry : Given a line L and a point p not on L , there is exactly 1 line through p parrallel to L.
+in Spherical geometry : Given a line L and a point p not on L , there no line through p parrallel to L.
+in hyperbolic geometry : Given a line L and a point p not on L , there infinitely many lines through p parrallel to L.
+
+Guiding principles to axioms.
+1. consistent 
+2. complete
+
+Def: A set of axioms is consistent if no proposition is  proved to be both T and F.
+Def: A set of axioms is Complete if it can be used to prove is either proposition is T or F.
+
+ 
+
+
+
+
+
