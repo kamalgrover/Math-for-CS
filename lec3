@@ -1,0 +1,97 @@
+Good Proofs are : 
+Correct 
+Complete
+Clear
+Brief (Crisp)
+"elegant" : mathematicians notion of beauty.
+well organized ( using lemmas the same way you use sub routines.)
+inorder
+
+Good proofs are very much like good code. 
+The motivation for learning good proofs or proof techniques comes from the fact that later on in life we need to use these to proove that our code is doing what it is supposed to do.
+
+Problem : find a sequence of moves to go from 
+state 1		state 2
+a b c 		a b c
+d e f 	to	d e f
+h g _		g h _
+
+Legal move : slide a letter into adjacent blank sqaure .
+
+Theoren : There is no sequence of legal moves to g&h and return all other letter to their original position.
+
+invariant : 
+very powerfull and commonly used concept in computer science .
+very closely linked to induction .
+In order to show that your system can never reach a particular special state. It is sufficient to show that there exists a property called the invariant, which holds at the initial state and is preserved by every legal move and is not present ( does not hold ) in the special state.
+
+Row move :  
+
+Lemma 1 : A row move does not change the order of the items( letter)
+Proof : In a row mov, we move an item from some cell i into an adjacent cell i - 1 or i + 1 . Nothing else moves. Hence the order of the items is preserved.
+
+Column Moves: 
+	
+Lemma 2 : A column move changes the relative order of precisely 2 pairs or items.
+Proof : In a column move, we move an item in cell i, to a blank spot in cell i - 3 or i + 3 
+		and when an items moves 3 positons, it changes relative order with 2 other items. ( i - 1, i - 2 ) or ( i + 1, i + 2 )
+
+Def : A Pair of letter L1 and L2 is an inversion or inverted pair. if L1 proceeds L2 in the alphabet but L1 appears after L2 in the puzzle.
+
+No of inversions in state 1 : 1 i.e HG ( odd number)
+No of inversions in state 2 : 0
+
+Lemma 3 : During a move, the number of inversions can only increase by 2 , decrease by  2 or stay the same. 
+Proof : Row move : no change.
+		Column move : 2 pairs change order. ( lemma 2)
+			case 1 : both pairs were inorder : goes up by 2
+			case 2 : both the pairs we inverted : goes up by 2
+			case 3 : one inorder and one inverted : stays the same. 
+
+Corollary : during a move, the parity (i.e. even or odd) of the number of inversions does not change.
+Proof : adding or subtracting 2 from a number does not change it's parity.
+
+so the invariant in this is : The parity of the number of inversions is odd. because it starts that way and it does not change. 
+
+Lemma 4  : In every state reachable from state1 the parity of the number of inversions is odd. 
+Proof : by Induction
+P(n) : After any sequence of n moves from the state 1, the parity of number of inversions is odd.
+Base : n = 0, #inversions = 1 => parity is 1. i.e. odd
+Inductive step: For any n>=0, P(n)=>P(n+1) is true.
+	Consider : Any sequence of n + 1 move, M1, M2, .... Mn+1
+	By P(n) wkt. the parity after moves M1, M2, ... Mn is odd. 
+	now by corrolary : during any move the parity does not change. 
+	so the Mn+1 th move does not change the parity . Hence the P(n) => P(n+1) is true.
+
+	Hence P(n) is true. ie Lemma 4 is proved.
+
+Theoren : There is no sequence of legal moves to g&h and return all other letter to their original position.
+Proof of theorem : 
+	The parity of the # of inversions in the desired state is even (0). By lemma 4, the desired state can not be reached from initial state using legal moves.
+
+
+INVARIANT PROOF IDEA : The idea here is looking for a property that is present in the begining, holds at every step and is not present in the desired state.
+
+
+
+Strong Induction : 
+
+Axiom : Let P(n) be any predicate. If P(0) is true.
+	forall n 
+	[P(0) and P(1) and P(2) ... P(n)] => P(n+1) is true.
+	then forall n P(n) is true.
+
+Anything that can be proved with strong induction can be proved with ordinary induction. It just might be a bit harder.
+It is more powerfull because we get to assume a lot more stuff.
+
+
+Ex : unstacking game : 
+	8 -> (5,3) => 15 points.
+	5 -> (4,1) => 4 points.
+	The goal of the game is to get the maximum points.
+Theorem : All the strategies for the n-block game prodi  
+
+
+
+
+
